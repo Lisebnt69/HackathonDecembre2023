@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BDE ESTIAM Lyon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        h1{
+            text-align: center;
+            font-size: xx-large;
+            margin:30px;
+           
+        }
+        
+
+*,
+*::after,
+*::before{
+
+box-sizing: border-box
+
+}
+
+input[type="radio"]{position:absolute;left:-100vw}
+
+label{cursor:pointer}
+
+
+.slider {
+
+display: grid;
+overflow: hidden;
+max-width: 720px;
+border-radius: 0.75rem;
+margin:5rem auto;
+	
+	}
+  
+	
+.slider> * {
+	
+grid-area: 1/1;
+
+}	
+
+
+
+
+.slider  ul { 
+
+list-style-type: none;
+padding: 0;
+margin: 0;
+display: flex;
+	
+}
+
+	
+.slider  ul li{
+z-index:-1;
+flex: 0 0 100%;
+transition: transform .4s;
+will-change: transform
+}
+	
+.slider  ul  li img {
+	
+aspect-ratio:3/2;	
+object-fit: cover;
+width: 100%;
+display: block;
+height:auto;
+user-select: none;
+	
+}
+
+	
+ 
+#slide_img2:checked ~  ul > li{transform: translate3d(-100%,0,0)}  
+#slide_img3:checked ~  ul > li{transform: translate3d(-200%,0,0)}
+#slide_img4:checked ~  ul > li {transform: translate3d(-300%,0,0)}
+#slide_img5:checked ~  ul > li {transform: translate3d(-400%,0,0)}
+#slide_img6:checked ~  ul > li {transform: translate3d(-500%,0,0)}
+#slide_img7:checked ~  ul > li {transform: translate3d(-600%,0,0)}
+#slide_img8:checked ~  ul > li {transform: translate3d(-700%,0,0)}
+#slide_img9:checked ~  ul > li {transform: translate3d(-800%,0,0)}
+#slide_img10:checked ~  ul > li {transform: translate3d(-900%,0,0)}
+ 
+    
+/******************fleches**************************/
+    
+	
+.precedent{place-self: center left;	}
+.suivant{place-self: center right;}
+	
+
+
+.slider > .precedent > label,
+.slider > .suivant > label{
+
+display: none;
+background-color:hsl(0,0%,15%);
+justify-content: center;
+align-content: center
+	
+}   
+        
+.slider > .precedent > label:after{content:'←'}
+.slider > .suivant > label:after{content:'→'}
+    
+.slider > .precedent > label:after,
+.slider > .suivant > label:after {
+	
+display: flex;
+align-items: center;
+font-size:2rem;
+font-size:clamp(2rem, 2vw, 4rem);
+color:hsl(0, 0%, 100%);
+
+	
+	}   
+    
+
+#slide_img1:checked ~ .precedent > label.img10,
+#slide_img1:checked ~ .suivant > label.img2,
+#slide_img2:checked ~ .precedent > label.img1,
+#slide_img2:checked ~ .suivant > label.img3,
+#slide_img3:checked ~ .precedent > label.img2,
+#slide_img3:checked ~ .suivant > label.img4,
+#slide_img4:checked ~ .precedent > label.img3,
+#slide_img4:checked ~ .suivant > label.img5,
+#slide_img5:checked ~ .precedent > label.img4,
+#slide_img5:checked ~ .suivant > label.img6,
+#slide_img6:checked ~ .precedent > label.img5,
+#slide_img6:checked ~ .suivant > label.img7,
+#slide_img7:checked ~ .precedent > label.img6,
+#slide_img7:checked ~ .suivant > label.img8,
+#slide_img8:checked ~ .precedent > label.img7,
+#slide_img8:checked ~ .suivant > label.img9,
+#slide_img9:checked ~ .precedent > label.img8,
+#slide_img9:checked ~ .suivant > label.img10,
+#slide_img10:checked ~ .precedent > label.img9,
+#slide_img10:checked ~ .suivant > label.img1{
+	
+display:flex;
+width:2rem;
+height:2rem;
+width:clamp(3rem, 8vw, 4rem);
+height:clamp(3rem, 8vw, 4rem);
+	
+	}
+
+
+
+/***************************navigation puces bas********************************/
+.puces {
+
+display: flex;
+gap: 1rem;
+padding: 1rem;
+place-self: end center;
+	
+	}
+    
+.puces label{
+	
+background-color: white;
+border-radius: 50%;
+width: 1rem;
+height: 1rem;
+width:clamp(1rem, 2vw, 1.5rem);
+height:clamp(1rem, 2vw, 1.5rem);	
+	}
+
+/********************simulation lien actif sur les puces******************************/
+
+	
+#slide_img1:checked ~ .puces > label.img1> .actif_puces,
+#slide_img2:checked ~ .puces > label.img2 > .actif_puces,
+#slide_img3:checked ~ .puces > label.img3 > .actif_puces,
+#slide_img4:checked ~ .puces > label.img4 > .actif_puces,
+#slide_img5:checked ~ .puces > label.img5 > .actif_puces,
+#slide_img6:checked ~ .puces > label.img6 > .actif_puces,
+#slide_img7:checked ~ .puces > label.img7 > .actif_puces,
+#slide_img8:checked ~ .puces > label.img8 > .actif_puces,
+#slide_img9:checked ~ .puces > label.img9 > .actif_puces,
+#slide_img10:checked ~ .puces > label.img10 > .actif_puces{
+	
+border-radius: inherit;	
+display: flex;
+height: inherit;
+width: inherit;
+background-color: black;
+	
+	}
+
+/********************************navigation puces bas****************************/
+
+    </style>
+    <header>
+        
+        <div class="barre"><h1>BDE ESTIAM Lyon</h1></div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="partenariat.html">Partenariats</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="evenements.html">Événements</a></li>
+                <li><a href="contact.html" >Contact</a></li>
+                <img src="logoBDE.png" alt="" class="logo-img">
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Tournoi de Foot du 08/12/2023</h1>
+    <a href="galerie.html"><img src="left-arrow-png-file.png" class="fleches" alt=""></a>
+
+<div class=slider><!-- Notre conteneur global -->
+
+    <input name="slider" id=slide_img1 type="radio" checked><!-- même nom pour tous les input / identifiant unique -->
+    <input name="slider" id=slide_img2 type="radio">
+    <input name="slider" id=slide_img3 type="radio">
+    <input name="slider" id=slide_img4 type="radio"> 
+    <input name="slider" id=slide_img5 type="radio"> 
+    <input name="slider" id=slide_img6 type="radio"> 
+    <input name="slider" id=slide_img7 type="radio"> 
+    <input name="slider" id=slide_img8 type="radio"> 
+    <input name="slider" id=slide_img9 type="radio"> 
+    <input name="slider" id=slide_img10 type="radio"> 
+    
+    <ul>
+    <li class=img1>
+    <img src="events/Passe/TournoiFoot/photos/1.jpg" alt height="" width="">
+    </li>
+    <li class=img2>
+    <img src="events/Passe/TournoiFoot/photos/2.jpg" alt height="" width="">
+    </li>
+    <li class=img3>
+    <img src="events/Passe/TournoiFoot/photos/3.jpg" alt height="" width="">
+    </li>
+    <li class=img4>
+    <img src="events/Passe/TournoiFoot/photos/4.jpg" alt height="" width="">
+    </li>
+    <li class=img5>
+    <img src="events/Passe/TournoiFoot/photos/5.jpg" alt height="" width="">
+    </li>
+    <li class=img6>
+    <img src="events/Passe/TournoiFoot/photos/6.jpg" alt height="" width="">
+    </li>
+    <li class=img7>
+    <img src="events/Passe/TournoiFoot/photos/7.jpg" alt height="" width="">
+    </li>
+    <li class=img8>
+    <img src="events/Passe/TournoiFoot/photos/8.jpg" alt height="" width="">
+    </li>
+    <li class=img9>
+    <img src="events/Passe/TournoiFoot/photos/9.jpg" alt height="" width="">
+    </li>
+    <li class=img10>
+    <img src="events/Passe/TournoiFoot/photos/10.jpg" alt height="" width="">
+    </li>
+    </ul>
+    
+    <div class=precedent>
+    <label class=img1 for=slide_img1></label>
+    <label class=img2 for=slide_img2></label>
+    <label class=img3 for=slide_img3></label>
+    <label class=img4 for=slide_img4></label>
+    <label class=img5 for=slide_img5></label>
+    <label class=img6 for=slide_img6></label>
+    <label class=img7 for=slide_img7></label>
+    <label class=img8 for=slide_img8></label>
+    <label class=img9 for=slide_img9></label>
+    <label class=img10 for=slide_img10></label>
+    </div>
+    
+    <div class=suivant>
+    <label class=img1 for=slide_img1></label>
+    <label class=img2 for=slide_img2></label>
+    <label class=img3 for=slide_img3></label>
+    <label class=img4 for=slide_img4></label>
+    <label class=img5 for=slide_img5></label>
+    <label class=img6 for=slide_img6></label>
+    <label class=img7 for=slide_img7></label>
+    <label class=img8 for=slide_img8></label>
+    <label class=img9 for=slide_img9></label>
+    <label class=img10 for=slide_img10></label>
+    </div>
+    
+    <div class=puces>
+    <label class="img1" for=slide_img1>
+    <span class=actif_puces></span>
+    </label>
+    <label class="img2" for=slide_img2>
+    <span class=actif_puces></span>
+    </label>
+    <label class="img3" for=slide_img3>
+    <span class=actif_puces></span>
+    </label>	
+    <label class="img4" for=slide_img4>
+    <span class=actif_puces></span>
+    </label>
+    <label class="img5" for=slide_img5>
+    <span class=actif_puces></span>
+    </label>
+    <label class="img6" for=slide_img6>
+    <span class=actif_puces></span>
+    </label>
+    <label class="img7" for=slide_img7>
+    <span class=actif_puces></span>
+    </label>
+    <label class="img8" for=slide_img8>
+    <span class=actif_puces></span>
+    </label>
+    <label class="img9" for=slide_img9>
+    <span class=actif_puces></span>
+    </label>
+    <label class="img10" for=slide_img10>
+    <span class=actif_puces></span>
+    </label>
+    </div>
+    
+    </div><!-- fin conteneur global -->	
+    
+    
+        
+    </main>
+     
+    <footer>
+        <div class="social-media">
+            <a href="#">
+                <i class="fa-brands fa-facebook-f"></i>
+            Facebook</a>
+            <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+                Twitter</a>
+                <a href="https://www.instagram.com/bde.estiam_lyon/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                    Instagram</a>
+            <a href="#">
+                <i class="fa-brands fa-linkedin"></i>
+                linkedln</a>
+        </div>
+        <p>29 AV. LECLERC,69007 LYON</p>
+    </footer>
+</body>
+
+</html>
